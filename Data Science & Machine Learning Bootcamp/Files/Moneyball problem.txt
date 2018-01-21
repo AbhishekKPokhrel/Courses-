@@ -1,0 +1,8 @@
+batting$OBP<- (batting$H + batting$BB + batting$HBP)/ (batting$AB + batting$BB + batting$HBP + batting$SF)
+
+#For Slugging Percentage(SP); first calculate 1B; 1B= H-2B-3B-HR
+batting$X1B<- batting$H - 2* batting$X2B - 3* batting$X3B - batting$HR
+Total_Bases= batting$X1B + (2* batting$X2B) + (3* batting$X3B) + (4* batting$HR)
+SP<- Total_Bases/ batting$AB
+
+*Note that columns that start with a number get an 'X' in front of them if read.csv is used not if fread is used
